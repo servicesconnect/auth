@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 import { start } from "@auth/server";
-import { databaseConnectiongit qad } from "@auth/config";
+import { databaseConnection } from "@auth/config";
 // import { config } from "@auth/config";
 
 const initialize = (): void => {
