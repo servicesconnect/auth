@@ -1,0 +1,10 @@
+FROM node:23-alpine3.19
+
+WORKDIR /app
+COPY *.json yarn.lock ./
+COPY src ./src
+RUN npm install && npm install -g nodemon pm2
+
+EXPOSE 5000
+
+CMD [ "yarn", "dev" ]
