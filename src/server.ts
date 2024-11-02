@@ -4,7 +4,6 @@ import "express-async-errors";
 import {
   winstonLogger,
   envConfig,
-  startAndCheckElasticConnection,
   CustomError,
   IErrorResponse,
 } from "@auth/config";
@@ -38,7 +37,7 @@ export function start(app: Application): void {
   standardMiddleware(app);
   routesMiddleware(app);
   //   startQueues();
-  startElasticSearch();
+  //   startElasticSearch();
   authErrorHandler(app);
   startServer(app);
 }
@@ -81,10 +80,10 @@ function routesMiddleware(app: Application): void {
 //   authChannel = (await createConnection()) as Channel;
 // }
 
-function startElasticSearch(): void {
-  startAndCheckElasticConnection();
-  //   createIndex("gigs");
-}
+// function startElasticSearch(): void {
+//   startAndCheckElasticConnection();
+//   //   createIndex("gigs");
+// }
 
 function authErrorHandler(app: Application): void {
   app.use(
