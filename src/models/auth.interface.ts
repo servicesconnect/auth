@@ -34,3 +34,12 @@ export interface IAuthDocument {
   comparePassword(password: string, hashedPassword: string): Promise<boolean>;
   hashPassword(password: string): Promise<string>;
 }
+
+export interface IAuthBuyerMessageDetails {
+  username?: string;
+  profilePicture?: string;
+  email?: string;
+  country?: string;
+  createdAt?: Date;
+  type?: string;
+}

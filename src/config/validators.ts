@@ -55,7 +55,7 @@ const isLogin: ObjectSchema = Joi.object().keys({
   deviceType: Joi.string().optional(),
 });
 
-const isEmail: ObjectSchema = Joi.object().keys({
+const isValidEmail: ObjectSchema = Joi.object().keys({
   email: Joi.string().email().required().messages({
     "string.base": "Field must be valid",
     "string.required": "Field must be valid",
@@ -91,4 +91,4 @@ const isChangePassword: ObjectSchema = Joi.object().keys({
   }),
 });
 
-export { isEmail, isSetPassword, isChangePassword, isSignUp, isLogin };
+export { isValidEmail, isSetPassword, isChangePassword, isSignUp, isLogin };

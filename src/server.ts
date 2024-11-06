@@ -6,6 +6,7 @@ import {
   envConfig,
   CustomError,
   IErrorResponse,
+  createQueueConnection,
 } from "@auth/config";
 import { IAuthPayload } from "@auth/models";
 import { Logger } from "winston";
@@ -27,7 +28,6 @@ import { Channel } from "amqplib";
 import { appRoutes } from "@auth/routes";
 // import { createConnection } from "@auth/queues/connection";
 
-const SERVER_PORT = 4002;
 const log: Logger = winstonLogger("authenticationServer", "debug");
 
 export let authChannel: Channel;
@@ -36,7 +36,7 @@ export function start(app: Application): void {
   securityMiddleware(app);
   standardMiddleware(app);
   routesMiddleware(app);
-  //   startQueues();
+  startQueues();
   //   startElasticSearch();
   authErrorHandler(app);
   startServer(app);
@@ -76,9 +76,9 @@ function routesMiddleware(app: Application): void {
   appRoutes(app);
 }
 
-// async function startQueues(): Promise<void> {
-//   authChannel = (await createConnection()) as Channel;
-// }
+async function startQueues(): Promise<void> {
+  authChannel = (await createQueueConnection()) as Channel;
+}
 
 // function startElasticSearch(): void {
 //   startAndCheckElasticConnection();
@@ -108,8 +108,8 @@ function startServer(app: Application): void {
     log.info(
       `Authentication server has started with process id ${process.pid}`
     );
-    httpServer.listen(SERVER_PORT, () => {
-      log.info(`Authentication server running on port ${SERVER_PORT}`);
+    httpServer.listen(envConfig.port, () => {
+      log.info(`Authentication server running on port ${envConfig.port}`);
     });
   } catch (error) {
     log.log("error", "AuthService startServer() method error:", error);
