@@ -6,4 +6,5 @@ export * from "./error-handler";
 export * from "./validators";
 export * from "./amqp";
 export * from "./helpers";
-export * from "./cloudinary-upload";
+export * from "./cloudinary";
+export * from "./gateway-middleware";

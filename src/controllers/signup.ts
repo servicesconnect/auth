@@ -13,7 +13,7 @@ import {
   BadRequestError,
   firstLetterUppercase,
   lowerCase,
-  uploads,
+  cloudinaryConfig,
 } from "@auth/config";
 import { IAuthDocument, IEmailMessageDetails } from "@auth/models";
 import { publishDirectMessage } from "@auth/queues/auth.producer";
@@ -47,7 +47,7 @@ export async function create(req: Request, res: Response): Promise<void> {
   }
 
   const profilePublicId = uuidV4();
-  const uploadResult: UploadApiResponse = (await uploads(
+  const uploadResult: UploadApiResponse = (await cloudinaryConfig.uploads(
     profilePicture,
     `${profilePublicId}`,
     true,
