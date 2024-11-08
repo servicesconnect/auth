@@ -60,10 +60,11 @@ const AuthModel: ModelDefined<IAuthDocument, AuthUserCreationAttributes> &
     browserName: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: "Postman", // Check back later
     },
     deviceType: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: "Postman", // Check back later
     },
     otp: {
       type: DataTypes.STRING,

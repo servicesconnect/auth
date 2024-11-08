@@ -1,6 +1,7 @@
 import JWT from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { NotAuthorizedError } from "./error-handler";
+import { envConfig } from "./env";
 
 const tokens: string[] = [
   "auth",
@@ -35,7 +36,7 @@ export function verifyGatewayRequest(
   try {
     const payload: { id: string; iat: number } = JWT.verify(
       token,
-      "1282722b942e08c8a6cb033aa6ce850e"
+      envConfig.gateway_jwt_token!
     ) as { id: string; iat: number };
     if (!tokens.includes(payload.id)) {
       throw new NotAuthorizedError(
