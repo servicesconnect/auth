@@ -7,6 +7,8 @@ import {
   CustomError,
   IErrorResponse,
   createQueueConnection,
+  startAndCheckElasticConnection,
+  createIndex,
 } from "@auth/config";
 import { IAuthPayload } from "@auth/models";
 import { Logger } from "winston";
@@ -37,7 +39,7 @@ export function start(app: Application): void {
   standardMiddleware(app);
   routesMiddleware(app);
   startQueues();
-  //   startElasticSearch();
+  startElasticSearch();
   authErrorHandler(app);
   startServer(app);
 }
@@ -80,10 +82,10 @@ async function startQueues(): Promise<void> {
   authChannel = (await createQueueConnection()) as Channel;
 }
 
-// function startElasticSearch(): void {
-//   startAndCheckElasticConnection();
-//   //   createIndex("gigs");
-// }
+function startElasticSearch(): void {
+  startAndCheckElasticConnection();
+  createIndex("gigs");
+}
 
 function authErrorHandler(app: Application): void {
   app.use(
