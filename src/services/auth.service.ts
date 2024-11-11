@@ -19,7 +19,8 @@ import { Logger } from "winston";
 const log: Logger = winstonLogger("authService", "debug");
 
 export async function createAuthUser(
-  data: IAuthDocument
+  data: IAuthDocument,
+  seed: boolean
 ): Promise<IAuthDocument | undefined> {
   try {
     const result: Model = await AuthModel.create(data);
@@ -31,13 +32,16 @@ export async function createAuthUser(
       createdAt: result.dataValues.createdAt!,
       type: "auth",
     };
-    await publishDirectMessage(
-      authChannel,
-      "servicesconnect-buyer-update",
-      "user-buyer",
-      JSON.stringify(messageDetails),
-      "Buyer details sent to buyer service."
-    );
+    if (!seed) {
+      // check back and remove this line when we no longer use the seed controller
+      await publishDirectMessage(
+        authChannel,
+        "servicesconnect-buyer-update",
+        "user-buyer",
+        JSON.stringify(messageDetails),
+        "Buyer details sent to buyer service."
+      );
+    }
     const userData: IAuthDocument = omit(result.dataValues, [
       "password",
     ]) as IAuthDocument;

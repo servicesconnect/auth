@@ -5,3 +5,4 @@ export * from "./password";
 export * from "./current-user";
 export * from "./refresh-token";
 export * from "./search";
+export * from "./seed";

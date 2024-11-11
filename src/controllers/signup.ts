@@ -73,7 +73,8 @@ export async function create(req: Request, res: Response): Promise<void> {
     deviceType,
   } as IAuthDocument;
   const result: IAuthDocument = (await createAuthUser(
-    authData
+    authData,
+    false
   )) as IAuthDocument;
   const verificationLink = `${envConfig.client_url}/confirm_email?v_token=${authData.emailVerificationToken}`;
   const messageDetails: IEmailMessageDetails = {
