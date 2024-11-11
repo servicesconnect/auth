@@ -5,12 +5,11 @@ import {
   winstonLogger,
   envConfig,
   CustomError,
-  IErrorResponse,
   createQueueConnection,
   startAndCheckElasticConnection,
   createIndex,
 } from "@auth/config";
-import { IAuthPayload } from "@auth/models";
+import { IAuthPayload, IErrorResponse } from "@auth/interfaces";
 import { Logger } from "winston";
 import {
   Application,
@@ -25,10 +24,8 @@ import helmet from "helmet";
 import cors from "cors";
 import { verify } from "jsonwebtoken";
 import compression from "compression";
-// import { appRoutes } from "@auth/routes";
 import { Channel } from "amqplib";
 import { appRoutes } from "@auth/routes";
-// import { createConnection } from "@auth/queues/connection";
 
 const log: Logger = winstonLogger("authenticationServer", "debug");
 

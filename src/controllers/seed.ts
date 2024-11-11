@@ -6,7 +6,7 @@ import {
 } from "@auth/services/auth.service";
 import { faker } from "@faker-js/faker";
 import { BadRequestError, firstLetterUppercase, lowerCase } from "@auth/config";
-import { IAuthDocument } from "@auth/models";
+import { IAuthDocument } from "@auth/interfaces";
 import { Request, Response } from "express";
 import { generateUsername } from "unique-username-generator";
 import { v4 as uuidV4 } from "uuid";
