@@ -8,7 +8,8 @@ import {
   updatePassword,
   updatePasswordToken,
 } from "@auth/services/auth.service";
-import { IAuthDocument, IEmailMessageDetails, AuthModel } from "@auth/models";
+import { AuthModel } from "@auth/models";
+import { IAuthDocument, IEmailMessageDetails } from "@auth/interfaces";
 import { Request, Response } from "express";
 import { envConfig, BadRequestError } from "@auth/config";
 import { publishDirectMessage } from "@auth/queues/auth.producer";

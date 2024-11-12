@@ -15,7 +15,7 @@ import {
   lowerCase,
   cloudinaryConfig,
 } from "@auth/config";
-import { IAuthDocument, IEmailMessageDetails } from "@auth/models";
+import { IAuthDocument, IEmailMessageDetails } from "@auth/interfaces";
 import { publishDirectMessage } from "@auth/queues/auth.producer";
 import { authChannel } from "@auth/server";
 import { StatusCodes } from "http-status-codes";

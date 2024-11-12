@@ -4,11 +4,8 @@ import {
   lowerCase,
   firstLetterUppercase,
 } from "@auth/config";
-import {
-  AuthModel,
-  IAuthBuyerMessageDetails,
-  IAuthDocument,
-} from "@auth/models";
+import { AuthModel } from "@auth/models";
+import { IAuthBuyerMessageDetails, IAuthDocument } from "@auth/interfaces";
 import { publishDirectMessage } from "@auth/queues/auth.producer";
 import { authChannel } from "@auth/server";
 import { sign } from "jsonwebtoken";

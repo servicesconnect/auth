@@ -10,7 +10,7 @@ import { StatusCodes } from "http-status-codes";
 import { BadRequestError, lowerCase, envConfig } from "@auth/config";
 import { publishDirectMessage } from "@auth/queues/auth.producer";
 import { authChannel } from "@auth/server";
-import { IAuthDocument, IEmailMessageDetails } from "@auth/models";
+import { IAuthDocument, IEmailMessageDetails } from "@auth/interfaces";
 
 export async function readCurrentUser(
   req: Request,
