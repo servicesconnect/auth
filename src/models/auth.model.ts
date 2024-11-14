@@ -1,5 +1,5 @@
 import { sequelize } from "@auth/config";
-import { IAuthDocument } from "@auth/models";
+import { IAuthDocument } from "@auth/interfaces";
 import { compare, hash } from "bcrypt";
 import { DataTypes, Model, ModelDefined, Optional } from "sequelize";
 

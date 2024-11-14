@@ -1,4 +1,5 @@
-import { AuthModel, IAuthDocument } from "@auth/models/";
+import { AuthModel } from "@auth/models/";
+import { IAuthDocument } from "@auth/interfaces";
 import {
   getUserByEmail,
   getUserByUsername,
