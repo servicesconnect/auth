@@ -4,7 +4,7 @@ import {
   updateVerifyEmailField,
 } from "@auth/services/auth.service";
 import { BadRequestError } from "@auth/config";
-import { IAuthDocument } from "@auth/models";
+import { IAuthDocument } from "@auth/interfaces";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 

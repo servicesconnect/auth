@@ -1,4 +1,4 @@
-import { IAuthDocument, IAuthPayload } from "@auth/models";
+import { IAuthDocument, IAuthPayload } from "@auth/interfaces";
 import { Response } from "express";
 
 export const authMockRequest = (

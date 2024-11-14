@@ -1,5 +1,5 @@
 import { getUserByUsername, signToken } from "@auth/services/auth.service";
-import { IAuthDocument } from "@auth/models";
+import { IAuthDocument } from "@auth/interfaces";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
