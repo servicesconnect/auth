@@ -6,7 +6,7 @@ import {
 import { envConfig, winstonLogger } from "@auth/config";
 
 import { Logger } from "winston";
-import { ISellerGig } from "@auth/interfaces";
+import { ISellerProject } from "@auth/interfaces";
 
 const log: Logger = winstonLogger("authElasticSearchServer", "debug");
 
@@ -54,20 +54,20 @@ export async function createIndex(indexName: string): Promise<void> {
 }
 export async function getDocumentById(
   index: string,
-  gigId: string
-): Promise<ISellerGig> {
+  projectId: string
+): Promise<ISellerProject> {
   try {
     const result: GetResponse = await elasticSearchClient.get({
       index,
-      id: gigId,
+      id: projectId,
     });
-    return result._source as ISellerGig;
+    return result._source as ISellerProject;
   } catch (error) {
     log.log(
       "error",
       "AuthService elastcisearch getDocumentById() method error:",
       error
     );
-    return {} as ISellerGig;
+    return {} as ISellerProject;
   }
 }

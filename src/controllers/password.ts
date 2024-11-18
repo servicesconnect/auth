@@ -49,7 +49,7 @@ export async function forgotPassword(
   };
   await publishDirectMessage(
     authChannel,
-    "jobber-email-notification",
+    "servicesconnect-email-notification",
     "auth-email",
     JSON.stringify(messageDetails),
     "Forgot password message sent to notification service."
@@ -95,7 +95,7 @@ export async function resetPassword(
   };
   await publishDirectMessage(
     authChannel,
-    "jobber-email-notification",
+    "servicesconnect-email-notification",
     "auth-email",
     JSON.stringify(messageDetails),
     "Reset password success message sent to notification service."
@@ -137,7 +137,7 @@ export async function changePassword(
   };
   await publishDirectMessage(
     authChannel,
-    "jobber-email-notification",
+    "servicesconnect-email-notification",
     "auth-email",
     JSON.stringify(messageDetails),
     "Password change success message sent to notification service."

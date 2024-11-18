@@ -4,20 +4,20 @@ import {
   IPaginateProps,
   IQueryList,
   ISearchResult,
-  ISellerGig,
+  ISellerProject,
 } from "@auth/interfaces";
 
 import { SearchResponse } from "@elastic/elasticsearch/lib/api/types";
 
-export async function gigById(
+export async function projectById(
   index: string,
-  gigId: string
-): Promise<ISellerGig> {
-  const gig = await getDocumentById(index, gigId);
-  return gig;
+  projectId: string
+): Promise<ISellerProject> {
+  const project = await getDocumentById(index, projectId);
+  return project;
 }
 
-export async function gigsSearch(
+export async function projectsSearch(
   searchQuery: string,
   paginate: IPaginateProps,
   deliveryTime?: string,
@@ -68,7 +68,7 @@ export async function gigsSearch(
     });
   }
   const result: SearchResponse = await elasticSearchClient.search({
-    index: "gigs",
+    index: "projects",
     size,
     query: {
       bool: {

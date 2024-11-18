@@ -6,7 +6,7 @@ import { envConfig } from "./env";
 const tokens: string[] = [
   "auth",
   "seller",
-  "gig",
+  "project",
   "search",
   "buyer",
   "message",

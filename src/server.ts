@@ -81,7 +81,7 @@ async function startQueues(): Promise<void> {
 
 function startElasticSearch(): void {
   startAndCheckElasticConnection();
-  createIndex("gigs");
+  createIndex("projects");
 }
 
 function authErrorHandler(app: Application): void {

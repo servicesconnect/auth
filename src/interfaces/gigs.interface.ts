@@ -1,7 +1,7 @@
 import { ObjectId } from "mongoose";
 import { IRatingCategories } from "./reviews.interface";
 
-export interface ISellerGig {
+export interface ISellerProject {
   _id?: string | ObjectId;
   id?: string | ObjectId;
   sellerId?: string | ObjectId;
