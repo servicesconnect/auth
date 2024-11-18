@@ -24,7 +24,6 @@ const isSignUp: ObjectSchema = Joi.object().keys({
   }),
   profilePicture: Joi.string().required().messages({
     "string.base": "Please add a profile picture",
-    "string.email": "Profile picture is required",
     "string.empty": "Profile picture is required",
   }),
   browserName: Joi.string().optional(),
