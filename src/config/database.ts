@@ -5,7 +5,7 @@ import { envConfig } from "./env";
 
 const log: Logger = winstonLogger("authDatabaseServer", "debug");
 
-const mysqlUri = `mysql://${envConfig.mysql_user}:${envConfig.mysql_password}@${envConfig.mysql_host}:${envConfig.mysql_port}/${envConfig.mysql_database}`;
+const mysqlUri = `${envConfig.mysql_db}`;
 
 export const sequelize: Sequelize = new Sequelize(mysqlUri, {
   dialect: "mysql",
